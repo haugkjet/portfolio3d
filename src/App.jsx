@@ -1,14 +1,14 @@
 import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
+import Experience from './Experience.jsx'
 
 function App() {
   return (
     
-        <Canvas>
-<mesh>
-    <sphereGeometry args={ [ 1.5, 32, 32 ] } />
-    <meshBasicMaterial color="mediumpurple" wireframe />
-</mesh>        </Canvas>
+<Canvas>
+<Experience />
+       
+</Canvas>
     
   )
 }
