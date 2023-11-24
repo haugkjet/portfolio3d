@@ -1,17 +1,12 @@
-import { createRoot } from 'react-dom/client'
-import { Canvas } from '@react-three/fiber'
-import Experience from './Experience.jsx'
+import React from 'react'
+import Experience from './Experience'
 
-function App() {
+
+export default function App() {
   return (
-    
-<Canvas>
-<Experience />
-       
-</Canvas>
+    <>
+      <Experience />
+      </>
     
   )
 }
-
-//createRoot(document.getElementById('root')).render(<App />)
-export default App

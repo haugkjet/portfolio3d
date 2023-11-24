@@ -1,31 +1,42 @@
-import { useFrame } from "@react-three/fiber"
-import { useRef } from "react"
+import React from 'react'
+import { Canvas } from '@react-three/fiber'
+import { Perf } from 'r3f-perf'
+import { OrbitControls} from '@react-three/drei'
+import { Leva,useControls } from 'leva'
 
-export default function Experience()
-{
-    const cubeRef = useRef()
-
-    useFrame((state,delta) =>
-    {        
-        cubeRef.current.rotation.y += delta
-    }
-    )
-    return <>
-
-
-    <mesh position-x={-2}>
-        <sphereGeometry/>
-        <meshBasicMaterial color="orange"/>
+function Cube({ position }) {
+  return (
+    <mesh position={position}>
+      <boxGeometry attach="geometry" />
+      <meshStandardMaterial attach="material" color="lightgreen" />
     </mesh>
-    <mesh ref={cubeRef} rotation-y={Math.PI *0.25} position-x={2} scale={1.5}>
-        <boxGeometry/>
-        <meshBasicMaterial color="mediumpurple" />
-    </mesh>
-    <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
-    <planeGeometry/>
-    <meshBasicMaterial color="greenyellow" />
-    </mesh>
+  )
+}
 
+function LightBulb() {
+  return     <>
+  <ambientLight intensity={0.1} />
+  <pointLight position={[-2, 0, 1]} intensity={3} />
+  <pointLight position={[0, 2, 1]} intensity={3} />
+  <pointLight position={[2, 0, 1]} intensity={3} />
 </>
+}
 
+export default function Experience() {
+  const { x, y, z } = useControls({
+    x: { value: 0, min: -5, max: 5, step: 0.01 },
+    y: { value: 0, min: -5, max: 5, step: 0.01 },
+    z: { value: 0, min: -5, max: 5, step: 0.01 },
+  })
+  return (
+    <>
+    <Leva collapsed />
+    <Canvas style={{ background: 'lightblue' }}>
+      <Perf position="top-left" />
+      <OrbitControls />
+      <Cube position={[x, y, z]}/>
+      <LightBulb />
+    </Canvas>
+    </>
+  )
 }
