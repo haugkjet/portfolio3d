@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import { OrbitControls} from '@react-three/drei'
 import { Leva,useControls } from 'leva'
+import Shapes from './Shapes'
 
 function Cube({ position }) {
   return (
@@ -36,6 +37,7 @@ export default function Experience() {
       <OrbitControls />
       <Cube position={[x, y, z]}/>
       <LightBulb />
+      <Shapes/>
     </Canvas>
     </>
   )
