@@ -45,7 +45,7 @@ export default function Experience() {
         } } style={{ background: 'lightblue' }}>
       <Perf position="top-left" />
       <OrbitControls />
-      <Physics debug>
+      <Physics debug={false}>
       <Lights />
       {/*<Cube position={[x, y, z]}/>
       <LightBulb />
