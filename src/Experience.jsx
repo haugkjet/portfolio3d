@@ -4,6 +4,8 @@ import { Perf } from 'r3f-perf'
 import { OrbitControls} from '@react-three/drei'
 import { Leva,useControls } from 'leva'
 import Shapes from './Shapes'
+import Lights from './Lights'
+import Level from './Level'
 
 function Cube({ position }) {
   return (
@@ -32,12 +34,22 @@ export default function Experience() {
   return (
     <>
     <Leva collapsed />
-    <Canvas style={{ background: 'lightblue' }}>
+    <Canvas shadows
+        camera={ {
+            fov: 45,
+            near: 0.1,
+            far: 200,
+            position: [ 2.5, 4, 6 ]
+        } } style={{ background: 'lightblue' }}>
       <Perf position="top-left" />
       <OrbitControls />
-      <Cube position={[x, y, z]}/>
+      <Lights />
+      {/*<Cube position={[x, y, z]}/>
       <LightBulb />
-      <Shapes/>
+  <Shapes/>*/}
+  <Level/>
+
+
     </Canvas>
     </>
   )
