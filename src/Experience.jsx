@@ -6,6 +6,7 @@ import { Leva,useControls } from 'leva'
 import Shapes from './Shapes'
 import Lights from './Lights'
 import Level from './Level'
+import { Physics, RigidBody } from '@react-three/rapier'
 
 function Cube({ position }) {
   return (
@@ -43,11 +44,14 @@ export default function Experience() {
         } } style={{ background: 'lightblue' }}>
       <Perf position="top-left" />
       <OrbitControls />
+      <Physics debug>
       <Lights />
       {/*<Cube position={[x, y, z]}/>
       <LightBulb />
   <Shapes/>*/}
   <Level/>
+  </Physics>
+
 
 
     </Canvas>
