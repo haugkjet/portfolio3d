@@ -8,6 +8,7 @@ import Lights from './Lights'
 import Level from './Level'
 import Player from './Player'
 import { Physics, RigidBody } from '@react-three/rapier'
+import Interface from './Interface.jsx'
 
 function Cube({ position }) {
   return (
@@ -44,7 +45,7 @@ export default function Experience() {
             position: [ 2.5, 4, 6 ]
         } } style={{ background: 'lightblue' }}>
       <Perf position="top-left" />
-      <OrbitControls />
+      {/*<OrbitControls />*/}
       <Physics debug={false}>
       <Lights />
       {/*<Cube position={[x, y, z]}/>
@@ -57,6 +58,7 @@ export default function Experience() {
 
 
     </Canvas>
+    <Interface />
     </>
   )
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://haugkjet.github.io/portfolio3d/",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
