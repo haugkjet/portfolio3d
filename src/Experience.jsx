@@ -9,6 +9,7 @@ import Level from './Level'
 import Player from './Player'
 import { Physics, RigidBody } from '@react-three/rapier'
 import Interface from './Interface.jsx'
+import useGame from './stores/useGame.jsx'
 
 function Cube({ position }) {
   return (
@@ -29,6 +30,10 @@ function LightBulb() {
 }
 
 export default function Experience() {
+
+  const blocksCount = useGame(state => state.blocksCount)
+    const blocksSeed = useGame(state => state.blocksSeed)
+
   const { x, y, z } = useControls({
     x: { value: 0, min: -5, max: 5, step: 0.01 },
     y: { value: 0, min: -5, max: 5, step: 0.01 },
@@ -51,7 +56,7 @@ export default function Experience() {
       {/*<Cube position={[x, y, z]}/>
       <LightBulb />
   <Shapes/>*/}
-  <Level/>
+  <Level count={ blocksCount } seed={ blocksSeed } />
   <Player />
   </Physics>
 
